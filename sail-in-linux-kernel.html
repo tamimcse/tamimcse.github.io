@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>MD Iftakharul Islam (Tamim)</title>
+
+        <meta name="keywords" content="MD Iftakharul Islam Tamim"><meta name="description" content="SAIL Based FIB Lookup in a Programmable Pipeline Based Linux Router"></head>
+
+<body bgcolor="#ffffff" text="#000000">
+
+<blockquote>
+<blockquote>
+
+
+
+
+
+
+
+
+<table style="width: 95%;" cellspacing="0" cols="2">
+<tbody><tr nosave="">
+<td style="text-align: left; height: 250px;" width="450">
+<h1 style="text-align: left;">
+    <font face="Courier New, Courier, monospace">SAIL Based FIB Lookup in a Programmable Pipeline Based Linux Router</font></h1>
+
+<font face="Courier New, Courier, monospace">
+by MD Iftakharul Islam and Javed I. Khan<br>
+Kent State University<br>
+(IEEE HPSR, 2019).
+</font>
+</td>
+
+</tr>
+</tbody></table>
+
+<p>
+</p><p>
+</p>This paper presents SAIL [1] based routing table lookup in Linux kernel and in <a href="http://web.mit.edu/domino/" onclick="stc(this, 8)">Domino</a>. This enables Linux to work as a high-speed router. Here Linux kernel works as a control plane and Domino based VLIW processor works as a dataplane. One major drawback of SAIL is its high memory consumption. Here we use <i>Population Counting</i> [2] to reduce memory consumption of SAIL by up to 80%. We implemented both variant of SAIL namely SAIL_L and SAIL_U in Linux kernel and in Domino. We compared their performance in Linux kernel and in Domino.
+<p>
+</p>
+
+<p>
+<table border="0" cellpadding="5" cellspacing="0" hspace="4" width="100%">
+    <tbody><tr bgcolor="#cdd4f9">
+        <td width="100%"><nobr><b><font face="arial">Getting Started with SAIL in Linux kernel</font></b></nobr></td>
+</tr></tbody></table>
+</p>
+
+<p>This experiment is performed on Ubuntu Gnome 16.04 however it should work on any other Linux distributions. Here we assume that you are already familier with Linux kernel development. If you are new to Linux kernel developement. please take a look at following resources at the beginning</p>
+<ul>
+<li><a href="https://kernelnewbies.org/">kernelnewbies.org</a></li>
+<li>Linux Kernel Development (by Robert Love)</li>
+<li>Linux TCP/IP Networking for Embedded Systems (by Thomas Herbert)</li>
+</ul>
+
+Now that you are familiar with Linux kernel development, let's get started with SAIL in Linux kernel
+
+<ol>
+<li>Check out our Linux kernel source code from <a href="https://github.com/tamimcse/net-next" onclick="stc(this, 8)">https://github.com/tamimcse/net-next</a></li>
+<li>Check out our Linux kernel patches from <a href="https://github.com/tamimcse/kernel-patches/" onclick="stc(this, 8)">https://github.com/tamimcse/kernel-patches/</a> </li>
+<li>Now you have two directories <i>net-next</i> and <i>kernel-patches</i> </li>
+<li>cd net-next</li>
+<li>git checkout d80323fbd653b770597fa724272eff5318f576bf (This will switch your code to Linux kernel 4.19.0-rc6+)</li>
+<li>Now use command <b>git apply ../kernel-patches/sail-u.patch</b> in order to include SAIL_U to your source code</li>
+<li>If you instead want to use SAIL_L, use the command <b>git apply ../kernel-patches/sail-l.patch</b></li>
+<li>Now you have added SAIL to your source code. But this will not do anything. You will want to add your test code to test SAIL. To do that, use the command <b>git apply ../kernel-patches/test-fib-lookup.patch</b> </li>
+<li>Now everything (both SAIL and corresponding test code) is added to your Linux kernel source code</li>
+<li>Now compile your kernel, install it and restart your computer</li>
+<li>Congrats! Now you should have SAIL running on your computer. Try command <b>dmesg</b> to see SAIL's ourput</li>
+<li>Check out <a href="https://github.com/tamimcse/parse-bgpdump" onclick="stc(this, 8)">https://github.com/tamimcse/parse-bgpdump</a>. It contains routing tables of backbone routers obtained from <a href="http://www.routeviews.org/routeviews/" onclick="stc(this, 8)">RouteView</a> project. It also contain necessary scripts to the add the routes to kernel </li>
+<li>cd parse-bgpdump</li>
+<li>sudo sh addroutes.sh (This will begin inserting the routing tables in to Linux kernel)</li>
+</ol>
+<p>If you have any issue, please email mislam4@kent.edu</p>
+
+<p>
+
+<table border="0" cellpadding="5" cellspacing="0" hspace="4" width="100%">
+    <tbody><tr bgcolor="#cdd4f9">
+        <td width="100%"><nobr><b><font face="arial">Getting Started with SAIL in Domino</font></b></nobr></td>
+</tr></tbody></table>
+</p>
+
+<p>This experiment is performed on Ubuntu Gnome 16.04 however it should work on any other Linux distributions.</p>
+<ol>
+<li>Install <a href="http://web.mit.edu/domino/" onclick="stc(this, 8)">Domino</a> according to their website</li>
+<li>clone <a href="https://github.com/tamimcse/domino-examples/" onclick="stc(this, 8)">https://github.com/tamimcse/domino-examples/</a> </li>
+<li>Enable permission to your <i>tmp</i> directory (<b>sudo chmod a+rwx -R /tmp/</b>). This directory will be used by Domino.</li>
+<li>You will find <i>sail-u.c</i> and <i>sail-l.c</i> in our <i>domino-examples</i> directory. This is our implementation. Now compile SAIL_U using the command <b>sh compile.sh domino-programs/sail-u.c banzai_atoms/raw.sk 15 5 true</b> </li>
+<li>Also compile SAIL_L using the command <b>sh compile.sh domino-programs/sail-l.c banzai_atoms/raw.sk 32 6 true</b> </li>
+</ol>
+<p>If you have any issue, please email mislam4@kent.edu</p>
+
+<p>
+<table border="0" cellpadding="5" cellspacing="0" hspace="4" width="100%">
+    <tbody><tr bgcolor="#cdd4f9">
+        <td width="100%"><nobr><b><font face="arial">References</font></b></nobr></td>
+</tr></tbody></table>
+</p>
+
+<ol>
+<li>Yang, Tong, et al. "Guarantee IP lookup performance with FIB explosion." ACM SIGCOMM, 2014</li>
+<li>Asai, Hirochika, et al. "Poptrie: A compressed trie with population count for fast and scalable software IP routing table lookup." ACM SIGCOMM, 2015</li>
+</ol>
+
+</blockquote></blockquote><script type="text/javascript">
+function stc(e,linkIndex){if(document.images){var linkText;if(navigator.appName.toLowerCase()=="microsoft internet explorer"){linkText=e.innerText}else{linkText=e.textContent}if(linkText==""){if(e.firstChild){var firstChild=e.firstChild.nodeName.toUpperCase();if(firstChild=="IMG"){linkText="Image: "+getName(e.firstChild.getAttribute('src'))}}else{var nodeName=e.nodeName.toUpperCase();if(nodeName=="AREA"){linkText="ImageMap: "+e.href}}}if(linkText==""){linkText=e.href}(new Image()).src="/a/i/stg.gif?f="+escape(document.location.href)+"&t="+escape(e.href)+"&i="+linkIndex+"&n="+escape(trimString(linkText))}}function getName(s){if(s.lastIndexOf('/')>=0){return(s.substring(s.lastIndexOf('/')+1,s.length))}else{return(s)}}function trimString(s){return(s.replace(/^\s*/,"").replace(/\s*$/,""))}
+</script>
+
+</body></html>

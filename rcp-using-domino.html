@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//w3c//dtd html 4.0 transitional//en">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <title>MD Iftakharul Islam (Tamim)</title>
+
+        <meta name="keywords" content="MD Iftakharul Islam Tamim"><meta name="description" content="Leveraging Domino to Implement RCP in a Stateful Programmable Pipeline"></head>
+
+<body bgcolor="#ffffff" text="#000000">
+
+<blockquote>
+<blockquote>
+
+<table style="width: 95%;" cellspacing="0" cols="2">
+<tbody><tr nosave="">
+<td style="text-align: left; height: 250px;" width="450">
+<h1 style="text-align: left;">
+    <font face="Courier New, Courier, monospace">Leveraging Domino to Implement RCP in a Stateful Programmable Pipeline</font></h1>
+
+<font face="Courier New, Courier, monospace">
+by MD Iftakharul Islam and Javed I. Khan<br>
+Kent State University<br>
+(IEEE HPSR, 2019)
+</font>
+
+
+</td>
+
+</tr>
+</tbody></table>
+
+<p>
+</p><p>
+</p><p>
+</p><p>
+</p><p>
+</p>This paper implements <a href="http://yuba.stanford.edu/rcp/" onclick="stc(this, 8)">RCP</a> [2] in a router dataplane using <a href="http://web.mit.edu/domino/" onclick="stc(this, 8)">Domino</a> programming language. RCP is a router-assisted congestion control protocol. RCP has been found to outperform host-centric TCP in achieving higher throughput, lower latecncy, faster flow completio and so on [1, 2, 4]. However it is very hard to implement RCP in a high-speed router dataplane [3]. Currently there is no router that properly supports RCP, to the best of our knowledge. This paper presents an implementation of RCP using Domino. 
+
+<p>
+</p>
+
+<p>
+<table border="0" cellpadding="5" cellspacing="0" hspace="4" width="100%">
+    <tbody><tr bgcolor="#cdd4f9">
+        <td width="100%"><nobr><b><font face="arial">Getting Started</font></b></nobr></td>
+</tr></tbody></table>
+</p>
+
+<p>This experiment is performed on Ubuntu Gnome 16.04 however it should work on any other Linux distributions (and in Mac).</p>
+<ol>
+<li>Install <a href="http://web.mit.edu/domino/" onclick="stc(this, 8)">Domino</a> according to their website</li>
+<li>clone <a href="https://github.com/tamimcse/domino-examples/" onclick="stc(this, 8)">https://github.com/tamimcse/domino-examples/</a> </li>
+<li>Enable permission to your <i>tmp</i> directory (<b>sudo chmod a+rwx -R /tmp/</b>). This directory will be used by Domino.</li>
+<li>You will find <i>rcp-real.c</i> in our <i>domino-examples</i> directory. This is our implementation. Now compile the program using the command <b>sh compile.sh domino-programs/rcp-real.c banzai_atoms/sub.sk 15 2 true</b> </li>
+</ol>
+<p>If you have any issue, please email mislam4@kent.edu</p>
+
+<p>
+<table border="0" cellpadding="5" cellspacing="0" hspace="4" width="100%">
+    <tbody><tr bgcolor="#cdd4f9">
+        <td width="100%"><nobr><b><font face="arial">References</font></b></nobr></td>
+</tr></tbody></table>
+</p>
+
+<ol>
+<li>Katabi, Dina,  et al "Congestion control for high bandwidth-delay product networks." ACM SIGCOMM 2002</li>
+<li>Dukkipati, Nandita, et al. "Processor sharing flows in the internet." IEEE IWQoS 2005</li>
+<li>Sharma, Naveen, et al. "Evaluating the Power of Flexible Packet Processing for Network Resource Allocation" USENIX NSDI, 2017</li>
+<li>Islam, Md, et al. "A network-centric TCP for interactive video delivery networks (VDN)." IEEE ICNP, 2017</li>
+</ol>
+
+<p>
+
+
+</blockquote></blockquote><script type="text/javascript">
+function stc(e,linkIndex){if(document.images){var linkText;if(navigator.appName.toLowerCase()=="microsoft internet explorer"){linkText=e.innerText}else{linkText=e.textContent}if(linkText==""){if(e.firstChild){var firstChild=e.firstChild.nodeName.toUpperCase();if(firstChild=="IMG"){linkText="Image: "+getName(e.firstChild.getAttribute('src'))}}else{var nodeName=e.nodeName.toUpperCase();if(nodeName=="AREA"){linkText="ImageMap: "+e.href}}}if(linkText==""){linkText=e.href}(new Image()).src="/a/i/stg.gif?f="+escape(document.location.href)+"&t="+escape(e.href)+"&i="+linkIndex+"&n="+escape(trimString(linkText))}}function getName(s){if(s.lastIndexOf('/')>=0){return(s.substring(s.lastIndexOf('/')+1,s.length))}else{return(s)}}function trimString(s){return(s.replace(/^\s*/,"").replace(/\s*$/,""))}
+</script>
+
+</body></html>

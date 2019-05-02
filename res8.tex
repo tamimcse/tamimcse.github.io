@@ -1,0 +1,142 @@
+% LaTeX file for resume 
+% This file uses the resume document class (res.cls)
+
+\documentclass{res} 
+%\usepackage{helvetica} % uses helvetica postscript font (download helvetica.sty)
+%\usepackage{newcent}   % uses new century schoolbook postscript font 
+\newsectionwidth{0pt}  % So the text is not indented under section headings
+\usepackage{fancyhdr}  % use this package to get a 2 line header
+\usepackage{hyperref}
+\renewcommand{\headrulewidth}{0pt} % suppress line drawn by default by fancyhdr
+\setlength{\headheight}{24pt} % allow room for 2-line header
+\setlength{\headsep}{24pt}  % space between header and text
+\setlength{\headheight}{24pt} % allow room for 2-line header
+\pagestyle{fancy}     % set pagestyle for document
+\rhead{ {\it Tamim}\\{\it p. \thepage} } % put text in header (right side)
+\cfoot{}                                     % the foot is empty
+\topmargin=-0.5in % start text higher on the page
+
+\begin{document}
+\thispagestyle{empty} % this page has no header  
+\name{MD Iftakharul Islam\\[12pt]}% the \\[12pt] adds a blank line after name
+
+\address{
+  Github: \url{https://github.com/tamimcse/}\\
+  Website: \url{http://web.cs.kent.edu/~mislam4/}}      
+                                      
+\address{
+Email: mislam4@kent.edu \\
+Phone: 330-389-3188
+  }
+\begin{resume}
+
+\section{\centerline{EDUCATION}} 
+\vspace{2pt} 
+{\sl PhD}, Computer Science \\
+Kent State University, Kent, OH, USA. \hspace{0.2in}  GPA 3.82 \hfill 2018 (expected) \\
+Thesis - A Router-centric TCP for Interactive Video Delivery Networks (VDN)
+ 
+{\sl Bachelor of Science}, Computer Science and Engineering \\ % \sl will be bold italic in
+					 % New Century Schoolbook (or
+					 % any postscript font) and
+					 % just slanted in Computer
+					 % Modern (default) font
+Bangladesh University of Engineering and Technology (BUET), Dhaka, Bangladesh      \hfill    Jan 2008
+
+\vspace{0.001in} 
+\section{\centerline{ PROGRAMMING SKILLS }}
+\vspace{2pt} 
+C; Linux Kernel; C++; Java; C\#; Python 
+  
+\vspace{0.001in} 
+\section{\centerline{PROFESSIONAL EXPERIENCE}} 
+\vspace{3pt}
+{\sl Kent State University} \hfill        Sep, 2013 - present \\
+Kent, OH, USA       \hfill   (Graduate Assistant)
+  
+   \begin{itemize} \itemsep -2pt % reduce space between items
+  \item Developed a routing table lookup algorithm in Linux kernel (in C). Currently it is the fastest routing table lookup algorithm, to the best of our knowledge. 
+  \item Implemented a router-assisted TCP in Linux kernel where TCP sending rate is calculated based on the explicit feedback from router (in C). The router-assisted TCP performs better than delay-based congestion control (currently used in Google Hangout) for video conferencing.  
+  \item Implemented RCP protocol for network processor based routers using Linux eBPF (in C). 
+  \item Developed a GStreamer based video streaming application (in C).
+  \item Developed several experimental network topologies using Mininet (Python).    	
+ \end{itemize}
+
+{\sl inConatact}       \hfill               May, 2015 - Aug, 2015 \\
+Columbus, OH, USA \hfill   (Software Development intern)
+ \begin{itemize} \itemsep -2pt
+	\item  Simulated a call center where simulated calls are generated based on various probabilistic distributions. The calls are then assigned to
+	agents based on their schedule and the skill matrices of the agents have been calculated. (C\#)
+	\item  Implemented an interval tree to make the call assignment efficient instead of searching all the agents.
+  \end{itemize} \vspace{-6pt}
+
+{\sl RightRez}       \hfill               May, 2014 - Aug, 2014 \\
+Bloomington, IN, USA \hfill   (Software Development intern)
+\begin{itemize} \itemsep -2pt
+	\item  Implemented a BFS and A* search to find flights from a graph consists of 3 million flights (C\#)
+	\item  Implemented several heuristics that reduced that searching time from 30 minutes to few seconds.
+    \item  Integrated Sabre webservice to implement seat map for airlines. (C\#)
+\end{itemize} \vspace{-6pt}
+
+{\sl GenWeb2}       \hfill               Sep, 2012 - Jul, 2013 \\
+Dhaka, Bangladesh \hfill   (Senior Software Engineer)
+\begin{itemize} \itemsep -2pt
+	\item  Implemented a 3D simulator for CNC machines. (C++, OpenGL, Qt) 
+	\item  Calculated the minimum number of points to draw an arc based on the arc length. It reduced the CPU and memory usage by almost 90\%
+\end{itemize} \vspace{-6pt}
+ 
+{\sl KB Group}       \hfill               Apr, 2010 - Sep, 2011 \\
+Dhaka, Bangladesh \hfill   (Software Engineer)
+ \begin{itemize}
+ \item  Integrated payment gateways to KB Group e-commerce and post office box application. (C++, COM). 
+ \item  Implemented a print server that generates PDF tickets and print them by specialized printers (C\#)
+ \end{itemize} 
+ 
+{\sl Arista Enterprises} \hfill  Apr, 2009 - Mar, 2010 \\
+Dhaka, Bangladesh \hfill   (Software Engineer)
+\begin{itemize} 
+\item  Implemented end-to-end transaction for an airline booking system (ASP.NET). 
+\end{itemize}  
+
+{\sl SDSL} \hfill                  Feb, 2008 - Mar, 2009 \\
+Dhaka, Bangladesh \hfill   (Software Engineer)
+\begin{itemize}
+\item Developed a map client for feature phones for AfriGIS map. Worked on zooming, panning, and caching map tiles. (J2ME). 
+\end{itemize} 
+ 
+\vspace{0.01in} 
+\section{\centerline{PUBLICATIONS}} 
+\vspace{10pt}
+\begin{itemize}
+   \item \textbf{MD Iftakharul Islam}, Javed I Khan "A Network-centric TCP for Interactive Video Delivery Networks (VDN)," IEEE International Conference on Network Protocols (ICNP), 2017.		      
+   \item \textbf{MD Iftakharul Islam}, Javed I Khan "Video Splicing Techniques for P2P Video Streaming," IEEE ICDCS workshop on Computer and Networking Experimental Research using Testbeds (CNERT), 2015.
+   
+\end{itemize}
+
+
+\vspace{0.01in} 
+\section{\centerline{SERVICES}} 
+
+\begin{center}
+\begin{itemize}
+	\item Reviewer of Journal of Computer Networks, Elsevier.	
+	\item Shadow reviewer of Journal of Network and Computer Applications, Elsevier.
+\end{itemize}
+ \end{center}
+ 
+ 
+\end{resume} 
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
