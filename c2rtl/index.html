@@ -13,7 +13,7 @@
 <tbody><tr nosave="">
 <td style="text-align: left; height: 250px;" width="450">
 <h1 style="text-align: left;">
-    <font face="Courier New, Courier, monospace">CP-Trie: Cumulative PopCount based Trie for IPv6 Routing Table Lookup in Software and ASIC (IEEE HPSR 2021)</font></h1>
+    <font face="Courier New, Courier, monospace">C2RTL: A High-level Synthesis System for IP Lookup and Packet Classification (IEEE HPSR 2021)</font></h1>
 
 <font face="Courier New, Courier, monospace">
 MD Iftakharul Islam and Javed I. Khan<br>
@@ -36,7 +36,7 @@ Kent State University<br>
 </tr></tbody></table>
 </p>
 
-<p>Routing table lookup is a key function of a router. It involves performing longest prefix match (LPM) of an IP address. Poptrie, the state-of-the-art trie based routing table lookup, encodes nodes using population counting bitmap. Poptrie uses PopCount CPU instruction which can process only 64 bits at a time. This is why, Poptrie uses 6-bit stride (2^6 = 64). This paper presents an extension of Poptrie named CP-Trie (stands for Cumulative PopCount based Trie) where it stores cumulative PopCount along with population counting bitmap. This enables CP-Trie to process longer stride (e.g. 8-16 bits) at each step. This reduces the number of steps and the number of memory access needed for an IP lookup. The fewer number of steps results in faster lookup. It also results in less power consumption in ASIC. Fewer memory accesses indicates that it requires fewer SRAM blocks in ASIC which results in lower area. This is why, CP-Trie is a more practical solution for pipelined ASIC compared to Poptrie. Our experiments with routing tables from real core routers show that CP-Trie achieves upto 1.43X lookup throughput on a general purpose CPU, but consumes 1.36-1.47X memory compared to Poptrie. We also implemented Poptrie and CP-Trie in a 1 GHz pipelined ASIC. Our physical synthesis report shows that CP-Trie consumes 0.86X power and 0.79X area compared to Poptrie in ASIC.</p>
+<p>IP lookup and packet classification are two core functions of a router. IP lookup involves performing longest prefix match (LPM) of the destination IP address. Packet classification involves finding the best match in a multi-field ruleset where each field needs an exact or prefix match. ASIC based IP lookup and packet classification are traditionally designed in a register transfer level (RTL) hardware description language (HDL) such as Verilog or VHDL. However, manually writing hardware logic is notoriously complicated and painful. This paper presents a High Level Synthesis (HLS) system named C2RTL. C2RTL generates hardware logic in Verilog RTL directly from IP lookup or packet classification algorithm implemented in C. C2RTL is implemented as a plugin of GCC compiler. It takes an IP lookup or packet classification algorithm (in C) as an input and generates corresponding synthesizable Verilog RTL code for pipelined ASIC. We developed several IP lookup and packet classification algorithms in C2RTL and generated corresponding Verilog RTL. We evaluated the resulting RTL code with OpenROAD EDA.</p>
 
 <p>
 <table border="0" cellpadding="5" cellspacing="0" hspace="4" width="100%">
