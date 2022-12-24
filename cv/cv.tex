@@ -75,7 +75,7 @@
 \homepage{https://tamimcse.github.io/}
 %  \twitter{@marissamayer}
 %  \linkedin{https://tamimcse.github.io/}
-%   \github{https://leetcode.com/tamimcse/}
+   \github{https://leetcode.com/tamimcse/}
 %   \github{github.com/tamimcse} % I'm just making this up though.
 %   \orcid{orcid.org/0000-0000-0000-0000} % Obviously making this up too. If you want to use this field (and also other academicons symbols), add "academicons" option to \documentclass{altacv}
 }
@@ -111,8 +111,8 @@
 %\end{itemize}
 
 \cvsection{TECHNICAL SKILLS}
-\cvtag{C}
 \cvtag{C++}
+\cvtag{C}
 \cvtag{High-Level Synthesis}
 \cvtag{Network Algorithms}
 \cvtag{Linux Kernel}
@@ -123,6 +123,11 @@
 %\cvtag{HTML/CSS}
 %\cvtag{JavaScript}
 \\
+\cvsection{Current Interest}
+\cvtag{Compiler for hardware accelerators}
+\cvtag{High-Level Synthesis}
+\cvtag{Electronic Design Automation (EDA)}
+\cvtag{FPGA}
 %\divider
 % \cvachievement{\faTrophy}{}{Received accolades at Atos for Best Performance in team.}
 % \cvachievement{\faTrophy}{}{Received Best Debut Award at Atos. }
@@ -150,30 +155,30 @@
 %\cvevent{B.S.\ in Symbolic Systems}{Stanford University}{Sept 1993 -- June 1997}{}
 
 \cvsection{Projects}
-\cvproject{CP-Trie: Routing Table Lookup in Software and ASIC}
-\begin{itemize}
-	\item Developed several bitmap based Trie (CP-Trie, Poptrie and SAIL) for IPv6 routing table lookup algorithms in C and ASIC. 
-	\item Evaluated the algorithms with routes from real core routers.
-\end{itemize}
-\smallskip
 \cvproject{C2RTL: A High-level Synthesis tool}
 \begin{itemize}
 	\item Developed a high-level synthesis tool, C2RTL that can generate synthesizable Verilog RTL for pipelined ASIC from C code.
 	\item It was designed as a GCC plugin. It takes intermediate code (produced by GCC) as an input and generates control and data-flow graph (CDFG) for that. It then performs scheduling and MUX tree generation before producing the Verilog code. 
 \end{itemize}
 \smallskip
-\cvproject{NC-TCP: Router assisted congestion control}
+\cvproject{CP-Trie: Routing Table Lookup in Software and ASIC}
+\begin{itemize}
+	\item Developed several bitmap based Trie (CP-Trie, Poptrie and SAIL) for IPv6 routing table lookup algorithms in C and ASIC. 
+	\item Evaluated the algorithms with routes from real core routers.
+\end{itemize}
+\smallskip
+\cvproject{NC-TCP: A congestion control in Linux kernel}
 \begin{itemize}
 	\item Developed several router assisted congestion control (XCP, RCP and NC-TCP)  in Linux kernel.
 	\item Evaluated the protocols using Mininet and a GStreamer based video streaming application. 
 \end{itemize}
 
-\cvsection{Publications}
+\cvsection{Selected Publications}
 \begin{itemize}
 	\item \underline{MD Iftakharul Islam}, Javed I Khan "CP-Trie: Cumulative PopCount based Trie for IPv6 Routing Table Lookup in Software and ASIC." IEEE HPSR, 2021.
 	\item \underline{MD Iftakharul Islam}, Javed I Khan "C2RTL: A High-level Synthesis System for IP Lookup and Packet Classification." IEEE HPSR, 2021.
-	\item \underline{MD Iftakharul Islam}, Javed I Khan "SAIL Based FIB Lookup in a Programmable Pipeline Based Linux Router." IEEE HPSR, 2019.
-	\item \underline{MD Iftakharul Islam}, Javed I Khan "Leveraging Domino to Implement RCP in a Stateful Programmable Pipeline." IEEE HPSR, 2019.
+%	\item \underline{MD Iftakharul Islam}, Javed I Khan "SAIL Based FIB Lookup in a Programmable Pipeline Based Linux Router." IEEE HPSR, 2019.
+%	\item \underline{MD Iftakharul Islam}, Javed I Khan "Leveraging Domino to Implement RCP in a Stateful Programmable Pipeline." IEEE HPSR, 2019.
 	\item \underline{MD Iftakharul Islam}, Javed I Khan "A Network-centric TCP for Interactive Video Delivery Networks (VDN)." IEEE ICNP Workshop PVE-SDN, 2017.
 	
 \end{itemize}
