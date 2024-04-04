@@ -1,0 +1,252 @@
+%!TeX program = pdflatex
+% Geoff Boeing's Curriculum Vitae
+% Email: boeing@usc.edu
+% Web: https://geoffboeing.com/
+% Repo: https://github.com/gboeing/cv
+
+\documentclass[11pt,letterpaper]{report}
+
+\usepackage[T1]{fontenc} % output T1 font encoding (8-bit) for accented characters as single glyph
+\usepackage[strict,autostyle]{csquotes} % smart and nestable quote marks
+\usepackage[USenglish]{babel} % regionalize hyphens, quote marks, etc automatically
+\usepackage{microtype}% improve text appearance with kerning, etc
+\usepackage{datetime} % enable formatting of date output
+\usepackage{tabto}    % make nice tabbing
+\usepackage{hyperref} % enable hyperlinks and pdf metadata
+\usepackage{geometry} % manually set page margins
+\usepackage{enumitem} % enumerate with [resume] option
+\usepackage{titlesec} % allow custom section fonts
+\usepackage{setspace} % custom line spacing
+
+% what is your name?
+\newcommand{\myname}{MD Iftakharul Islam}
+
+% select default typefaces
+\usepackage{ebgaramond} % document's serif typeface
+\usepackage{tgheros}    % document's sans serif typeface
+
+% how far to tab for list items with left-aligned date: different fonts need different widths
+\newcommand{\listtabwidth}{1.7cm}
+
+% define font to use as document's title
+\newcommand{\namefont}[1]{{\normalfont\bfseries\Huge{#1}}}
+
+% set section heading fonts and before/after spacing
+\SetTracking{encoding=*, family=\sfdefault}{30} % increase sans serif headings tracking
+\titleformat{\section}{\lsstyle\sffamily\small\bfseries\uppercase}{}{}{}{}
+\titlespacing{\section}{0pt}{30pt plus 4pt minus 4pt}{8pt plus 2pt minus 2pt}
+
+% set subsection heading fonts and before/after spacing
+\titleformat{\subsection}{\lsstyle\sffamily\footnotesize\bfseries}{}{}{}{}
+\titlespacing{\subsection}{0pt}{16pt plus 4pt minus 4pt}{4pt plus 2pt minus 2pt}
+
+% set page margins (assumes letter paper)
+\geometry{body={6.5in, 9.0in},
+    left=1.0in,
+    top=1.0in}
+
+% prevent paragraph indentation
+\setlength\parindent{0em}
+
+% set line spacing
+\setstretch{0.9}
+
+% define space between list items
+\newcommand{\listitemspace}{0.25em}
+
+% make unordered lists without bullets and use compact spacing
+\renewenvironment{itemize}
+{\begin{list}{}{\setlength{\leftmargin}{0em}
+                \setlength{\parskip}{0em}
+                \setlength{\itemsep}{\listitemspace}
+                \setlength{\parsep}{\listitemspace}}}
+{\end{list}}
+
+% make tabbed lists so content is left-aligned next to years
+\TabPositions{\listtabwidth}
+\newlist{tablist}{description}{3}
+\setlist[tablist]{leftmargin=\listtabwidth,
+    labelindent=0em,
+    topsep=0em,
+    partopsep=0em,
+    itemsep=\listitemspace,
+    parsep=\listitemspace,
+    font=\normalfont}
+
+% print only the month and year when using \today
+\newdateformat{monthyeardate}{\monthname[\THEMONTH] \THEYEAR}
+
+% define hyperlink appearance and metadata for pdf properties
+\hypersetup{
+    colorlinks  = true,
+    urlcolor    = black,
+    citecolor   = black,
+    linkcolor   = black,
+    pdfauthor   = {\myname},
+    pdfkeywords = {city planning, housing, street networks, transportation, urban design, urban informatics},
+    pdftitle    = {\myname: Curriculum Vitae},
+    pdfsubject  = {Curriculum Vitae},
+    pdfpagemode = UseNone
+}
+
+\begin{document}
+    \raggedright{}
+
+    % display your name as the document title
+    \namefont{\myname}
+
+    % affiliation and contact info blocks
+    \vspace{1em}
+    \begin{minipage}[t]{0.700\textwidth}
+        % current primary affiliation, left-aligned
+        Staff Engineer, \\
+        Samsung Austin Semiconductor,\\
+        Samsung Advanced Computing Labs (ACL),\\
+        San Jose, CA.
+    \end{minipage}
+    \begin{minipage}[t]{0.295\textwidth}
+        % contact info details, right-aligned
+        \flushright{}
+        \href{mailto:mislam4@kent.edu}{mislam4@kent.edu} \\
+        +1 330 389 3188 \\
+        \href{https://tamimcse.github.io/}{https://tamimcse.github.io} \\
+        Palo Alto, CA.
+    \end{minipage}
+
+
+    \section*{Education}
+
+    \begin{tablist}
+
+        \item[Ph.D.] \tab{}Computer Science, Kent State University, Kent, OH, USA. (Date received: 08/20/2022)
+        \item[B.Sc.]  \tab{}Computer Science and Engineering, BUET, Dhaka, Bangladesh (Date received: 01/06/2008).
+
+    \end{tablist}
+
+    \section*{PhD Dissertation}
+
+An IPv6 Routing Table Lookup Algorithm in Software and ASIC by Designing a High-Level Synthesis System
+
+
+    \section*{Research Areas}
+
+    \begin{itemize}
+
+        \item CGRA and GPU Compiler and Simulator
+        \item High-Level Synthesis compiler
+        \item Network Algorithms
+
+    \end{itemize}
+
+    \section*{Technical Skills}
+
+\begin{itemize}
+	\item C++ 
+	\item C
+\end{itemize}
+
+
+\section*{Work Experience}
+\subsection*{Staff Engineer}{Samsung Austin Semiconductor, San Jose, CA}\\{04/03/2023 -- Present}
+\begin{itemize}
+	\item I worked on GPU functional modeling. I primarily worked on the command processor (CP) block of the GPU. There I worked on integrating RISC-V based core in CP. I also worked on other CP functionalities such as last level cache (LLC) preloading, context versioning and so on. 
+\end{itemize}
+
+
+\subsection*{Software Engineer 3}{Juniper Networks, Sunnyvale, CA}\\{01/10/2022--03/27/2023}
+\begin{itemize}
+	\item I worked on Packet forwarding software of Juniper Express ASIC. I mainly worked on packet classification algorithms (e.g. prefix match, range match, TCAM match, etc). I also worked on compiler that maps network rules to ASIC.
+\end{itemize}
+
+
+\subsection*{Graduate Assistant}{Kent State University, Kent, OH}\\{Sep 2013-Dec 2022}
+\begin{itemize}
+	\item Taught Design Patterns and Object Oriented Programming in C++.
+\end{itemize}
+
+
+\subsection*{Software Engineer -- Intern}{inContact, Columbus, OH}\\{May 2015-Aug 2015}
+\begin{itemize}
+	\item Developed a call center simulation platform (C\#).
+\end{itemize}
+
+
+\subsection*{Software Engineer - Intern}{RightRez, Bloomington, IN}\\{May 2014-Aug 2014}
+\begin{itemize}
+	\item Developed a flight search algorithm (C\#).
+\end{itemize}
+
+
+\subsection*{Senior Software Engineer}{GenWeb2, Dhaka, Bangladesh}\\{Sep 2012 -- Jul 2013}
+\begin{itemize}
+	\item Developed a 3D simulator of CNC machines (C++)
+\end{itemize}
+
+
+\subsection*{Software Engineer}{KB Group, Dhaka, Bangladesh}\\{Apr 2010 - Sep 2011}
+\begin{itemize}
+	\item Developed ticketing systems for theaters (C++).
+\end{itemize}
+
+
+\subsection*{Software Engineer}{Arista Enterprises, Dhaka, Bangladesh}\\{Apr 2009--Mar 2010}
+\begin{itemize}
+	\item Developed an airline ticket booking system (C\#).
+\end{itemize}
+
+
+
+\subsection*{Software Engineer}{SDSL, Dhaka, Bangladesh}\\{Feb 2008--Mar 2009}
+\begin{itemize}
+	\item Developed a map navigator for AfriGIS map (C\#)
+\end{itemize}
+
+
+
+    \section*{Publications}
+
+
+
+    \begin{tablist}
+        \item[2021] \tab{}\underline{MD Iftakharul Islam}, Javed I Khan "C2RTL: A High-level Synthesis System for IP Lookup and Packet Classification." \textit{IEEE 22nd International Conference on High Performance Switching and Routing (HPSR)}. Paris, France.\@ \href{https://ieeexplore.ieee.org/document/9481810}{doi:10.1109/HPSR52026.2021.9481810}
+    	
+        \item[2021] \tab{}\underline{MD Iftakharul Islam}, Javed I Khan "CP-Trie: Cumulative PopCount based Trie for IPv6 Routing Table Lookup in Software and ASIC." \textit{IEEE 22nd International Conference on High Performance Switching and Routing (HPSR)}. Paris, France.\@ \href{https://ieeexplore.ieee.org/document/9481816}{doi:10.1109/HPSR52026.2021.9481816}
+
+        \item[2019] \tab{}\underline{MD Iftakharul Islam}, Javed I Khan "SAIL based FIB lookup in a programmable pipeline based Linux router." \textit{IEEE 20th International Conference on High Performance Switching and Routing (HPSR)}. Xi'an, China.\@ \href{https://ieeexplore.ieee.org/document/8808129}{doi:10.1109/HPSR.2019.8808129}
+
+        \item[2019] \tab{}\underline{MD Iftakharul Islam}, Javed I Khan "Leveraging Domino to implement RCP in a stateful programmable pipeline." \textit{IEEE 20th International Conference on High Performance Switching and Routing (HPSR)}. Xi'an, China.\@ \href{https://ieeexplore.ieee.org/document/8808107}{doi:10.1109/HPSR.2019.8808107}
+        
+        \item[2017] \tab{}\underline{MD Iftakharul Islam}, Javed I Khan "A network-centric TCP for interactive video delivery networks (VDN)." \textit{IEEE 25th International Conference on Network Protocols (ICNP) Workshop PVE-SDN}. Toronto, ON, Canada.\@ \href{https://ieeexplore.ieee.org/document/8117596}{doi:10.1109/ICNP.2017.8117596}
+
+        \item[2015] \tab{}\underline{MD Iftakharul Islam}, Javed I Khan "Video splicing techniques for P2P video streaming." \textit{IEEE 35th International Conference on Distributed Computing Systems (ICDCS) Workshops}. Columbus, OH, USA.\@ \href{https://ieeexplore.ieee.org/document/7165086}{doi:10.1109/ICDCSW.2015.23}
+
+        \item[2009] \tab{}\underline{MD Iftakharul Islam}, Md Mostofa Akbar "Heuristic algorithm of the multiple-choice multidimensional knapsack problem (MMKP) for cluster computing." \textit{12th International Conference on Computers and Information Technology (ICCIT)}. Dhaka, Bangladesh.\@ \href{https://ieeexplore.ieee.org/document/5407147}{doi:10.1109/ICCIT.2009.5407147}
+        
+    \end{tablist}
+
+
+
+
+    \section*{Service}
+
+
+    \subsection*{Academic Journal Peer Review}
+
+	\begin{itemize}
+		\item IEEE Transaction on Networking (ToN)
+		\item IEEE Journal of Selected Area of Communication (JSAC)
+		\item Journal of Parallel and Distributed Computing (JPDC)
+	\end{itemize}
+
+
+
+
+
+
+    % display today's date as Month Year after a vertical space below the end of the text
+    \begin{center}
+        \vfill
+        Updated \monthyeardate\today
+    \end{center}
+
+\end{document}
